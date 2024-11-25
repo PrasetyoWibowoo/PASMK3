@@ -5,93 +5,104 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    @vite('resources/css/app.css')
+    <link href="https://fonts.googleapis.com/css2?family=Lalezar&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
-<body class="bg-gray-900 overflow-y-scroll w-screen h-screen m-0 font-poppins">
+<body class="bg-custom-bg overflow-y-scroll overflow-x-hidden w-screen h-screen m-0">
 
 <!-- Header -->
-<header id="navbar" class="bg-white/5 transition duration-300 ease-in-out absolute z-10 top-0 left-0 w-full p-4 shadow-lg sticky">
+<header id="navbar" class="bg-custom-gray transition duration-300 ease-in-out absolute z-10 top-0 left-0 w-full p-4 shadow-lg sticky">
   <div class="container mx-auto flex items-center justify-between p-4">
     <a href="#" class="relative right-20 text-green-600 text-5xl font-lalezar text-shadow">TravelGo</a>
     <nav class="space-x-10 hidden md:flex left-40 top-3 relative">
-      <a href="#" class="text-white text-2xl font-lalezar hover:text-green-500 text-shadow">Home</a>
-      <a href="#" class="text-white text-2xl font-lalezar hover:text-green-500 text-shadow">About Us</a>
-      <a href="#" class="text-white text-2xl font-lalezar hover:text-green-500 text-shadow">Blog & News</a>
-      <a href="#" class="text-white text-2xl font-lalezar hover:text-green-500 text-shadow">Product</a>
-      <a href="#" class="px-5 py-2 bg-green-500 text-center text-white text-2xl font-lalezar relative bottom-3 rounded-3xl hover:text-black text-shadow">Join Us</a>
+      <a href="{{ route('home') }}" class="text-white text-2xl font-lalezar hover:text-green-500 text-shadow">Home</a>
+      <a href="{{ route('about') }}" class="text-white text-2xl font-lalezar hover:text-green-500 text-shadow">About Us</a>
+      <a href="{{ route('blognews') }}" class="text-white text-2xl font-lalezar hover:text-green-500 text-shadow">Blog & News</a>
+      <a href="{{ route('product') }}" class="text-white text-2xl font-lalezar hover:text-green-500 text-shadow">Product</a>
+      <a href="{{ route('home') }}" class="px-5 py-2 bg-green-500 text-center text-white text-2xl font-lalezar relative bottom-3 rounded-3xl hover:text-black text-shadow">Join Us</a>
     </nav>
   </div>
 </header>
 
-
-<script>
-  window.addEventListener('scroll', function() {
-    const navbar = document.getElementById('navbar');
-    if (window.scrollY > 950) {
-      navbar.classList.add('bg-custom-gray');
-      navbar.classList.remove('bg-white/5');
-    } else {
-      navbar.classList.remove('bg-custom-gray');
-      navbar.classList.add('bg-white/5');
-    }
-  });
-</script>
-
     <!-- Section Hijau -->
-    <section class="bg-green-500 py-10 flex">
-        <img src="/UTS (TravelGo)/IMG/driverhp.png" alt="driver muncul dari hp" class="ml-10 mt-20">
-        <h1 class="text-4xl text-white mt-28 ml-10">Our Products</h1>
-    </section>
+    <img src="{{URL::asset('assets/img/produkatas.png')}}" alt="driver muncul dari hp" class="mb-64 w-full h-auto">
+
 
     <!-- Product Menu -->
-    <div class="flex gap-12 mt-12 mb-16 justify-center">
-        <div class="bg-green-500 py-3 px-5 rounded-full text-center w-48 cursor-pointer hover:bg-gray-900">
-            <a href="#" class="text-2xl text-black font-bold">Motor</a>
+    <div class="relative bottom-44 flex gap-40 justify-center">
+        <div class="bg-custom-text transition duration-300 delay-100 hover:bg-black cursor-pointer py-3 px-1 rounded-full text-center w-48 cursor-pointer hover:bg-gray-900">
+            <a href="#" class="text-2xl transition duration-300 delay-100 hover:text-white text-black font-bold">Motor</a>
         </div>
-        <div class="bg-green-500 py-3 px-5 rounded-full text-center w-48 cursor-pointer hover:bg-gray-900">
+        <div class="bg-custom-text py-3 px-1 rounded-full text-center w-48 cursor-pointer hover:bg-gray-900">
             <a href="#" class="text-2xl text-black font-bold">Mobil</a>
         </div>
-        <div class="bg-green-500 py-3 px-5 rounded-full text-center w-48 cursor-pointer hover:bg-gray-900">
+        <div class="bg-custom-text py-3 px-1 rounded-full text-center w-48 cursor-pointer hover:bg-gray-900">
             <a href="#" class="text-2xl text-black font-bold">Kereta</a>
         </div>
-        <div class="bg-green-500 py-3 px-5 rounded-full text-center w-48 cursor-pointer hover:bg-gray-900">
+        <div class="bg-custom-text py-3 px-1 rounded-full text-center w-48 cursor-pointer hover:bg-gray-900">
             <a href="#" class="text-2xl text-black font-bold">Pesawat</a>
         </div>
     </div>
-
-    <!-- Images Section -->
-    <div class="relative flex flex-col items-center">
-        <img src="/UTS (TravelGo)/IMG/img1.png" alt="" class="w-full max-w-6xl mt-5">
-        <img src="/UTS (TravelGo)/IMG/img2.png" alt="" class="w-full max-w-6xl mt-[-180px]">
-        <img src="/UTS (TravelGo)/IMG/img3.png" alt="" class="w-full max-w-6xl mt-[-180px]">
-        <img src="/UTS (TravelGo)/IMG/img4.png" alt="" class="w-full max-w-6xl mt-[-200px]">
-    </div>
+<main class="container bottom-28 relative mx-auto">
+<hr class="mb-10 my-1 border-t border-white">
+  <img src="{{URL::asset('assets/img/prod1.png')}}" alt="Feature 1" class="w-auto h-auto -mb-32 mx-auto hover:scale-105 transition-transform duration-300">
+  <img src="{{URL::asset('assets/img/prod2.png')}}" alt="Feature 2" class="w-68 h-full -mb-32 ml-52 mx-auto hover:scale-105 transition-transform duration-300">
+  <img src="{{URL::asset('assets/img/prod3.png')}}" alt="Feature 2" class="w-68 h-full -mb-32 ml-52 mx-auto hover:scale-105 transition-transform duration-300">
+  <img src="{{URL::asset('assets/img/prod3.png')}}" alt="Feature 2" class="w-68 h-full -mb-32 ml-52 mx-auto hover:scale-105 transition-transform duration-300">
+</main>
 
     <!-- Footer -->
-    <footer class="bg-gray-700 py-24">
-        <section class="text-center text-white">
-            <h1 class="text-5xl text-green-400 font-lalezar mb-5">Travelgo</h1>
-            <div class="flex justify-center gap-12 mb-5">
-                <a href="/index.html" class="hover:text-gray-400">Home</a>
-                <a href="/blogAndNews/index.html" class="hover:text-gray-400">Blog & News</a>
-                <a href="/Login/index.html" class="hover:text-gray-400">Join Us</a>
-                <a href="/products/index.html" class="hover:text-gray-400">Product</a>
-            </div>
-            <div class="mb-5">
-                <a href="/Login/index.html" class="bg-gray-300 px-5 py-2 rounded-full text-black">Send your email</a>
-            </div>
-            <div class="relative">
-                <img src="/UTS (TravelGo)/IMG/garisfooter.png" alt="" class="w-full">
-                <h2 class="absolute bottom-5 left-1/2 transform -translate-x-1/2 text-gray-300 text-xl">TravelGo | 2024 All Rights Reserved</h2>
-            </div>
-            <div class="relative mt-10">
-                <h2 class="absolute top-0 right-0 text-gray-300 text-xl">Follow and keep updated!</h2>
-                <img src="/UTS (TravelGo)/IMG/contact.png" alt="" class="absolute top-8 right-10">
-            </div>
-        </section>
-    </footer>
+    <footer class="bg-gray-800 text-white py-8">
+  <div class="container mx-auto grid md:grid-cols-3 top-16 relative">
+    <div>
+      <h1 class="text-4xl font-bold text-green-600 mb-4">Travelgo</h1>
+      <div class="flex space-x-20">
+    <a href="#" class="text-2xl hover:text-green-500 mr-3 relative">Home</a>
+    <a href="#" class="text-2xl hover:text-green-500">Blog & News</a>
+  </div>
+  <div class="flex space-x-20 text-left mb-4">
+    <a href="#" class="text-2xl hover:text-green-500">Join Us</a>
+    <a href="#" class="text-2xl hover:text-green-500">Cookie Settings</a>
+    </div>
 
+    <input type="email" placeholder="Send your email" class="left-64 p-2 w-80 rounded-xl text-gray-700 z-0"> 
+    <button class="mr-10 absolute hover: py-1 z-10">
+    <img src="{{ URL::asset('assets/img/Submit.png') }}" alt="Deskripsi Gambar" class="">
+    </button>
+  </div>
+    </div>
+      </div>
+      <!--Line tengah-->
+      <div class="h-52 w-px relative bottom-36 left-1/2 bg-gray-500"></div>
+
+      <div class="flex space-y-14 relative left-3/4 bottom-72">
+      <h1 class="text-2xl">Follow and keep updated!</h1>
+      <div class="flex relative right-64 space-x-8">
+      <a href="https://www.linkedin.com" target="_blank" class="hover:scale-110 transition-transform duration-300">
+    <img src="{{ URL::asset('assets/img/bxl-linkedin.png') }}" alt="Deskripsi Gambar" class="">
+    </a>
+      <a href="https://www.twitter.com" target="_blank" class="hover:scale-110 transition-transform duration-300">
+    <img src="{{ URL::asset('assets/img/bxl-twitter.png') }}" alt="Deskripsi Gambar" class="">
+    </a>
+      <a href="https://www.instagram.com" target="_blank" class="hover:scale-110 transition-transform duration-300">
+    <img src="{{ URL::asset('assets/img/bxl-instagram-alt.png') }}" alt="Deskripsi Gambar" class="">
+    </a>
+      <a href="https://www.youtube.com" target="_blank" class="hover:scale-110 transition-transform duration-300">
+    <img src="{{ URL::asset('assets/img/bxl-youtube.png') }}" alt="Deskripsi Gambar" class="">
+    </a>
+      <a href="https://www.github.com" target="_blank" class="hover:scale-110 transition-transform duration-300">
+    <img src="{{ URL::asset('assets/img/bxl-github.png') }}" alt="Deskripsi Gambar" class="">
+    </div>
+    </a>
+      </div>
+
+      <div class="text-center text-xl relative bottom-36">
+    <p>TravelGo | 2024 All Rights Reserved</p>
+  </div>
+  </div>
+</footer>
 </body>
 
 </html>

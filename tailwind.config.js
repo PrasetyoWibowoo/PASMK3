@@ -13,6 +13,8 @@ export default {
         extend: {
             colors: {
                 'custom-gray' : 'rgb(55, 55, 55)',
+                'custom-bg' : 'rgb(32, 32, 32)',
+                'custom-text' : 'rgb(48, 198, 65)',
             },
 
             fontFamily: {

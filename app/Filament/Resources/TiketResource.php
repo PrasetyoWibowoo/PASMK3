@@ -19,14 +19,22 @@ class TiketResource extends Resource
     {
         return $form
             ->schema([
+                Forms\Components\Select::make('kendaraan_id')
+                    ->relationship('kendaraan', 'name')//function pertama itu ngambil dari relation di model yo, yang kedua itu column yang dipanggil dari table tersebut
+                    ->required(),
                 Forms\Components\TextInput::make('nama')
                     ->required(),
-                Forms\Components\TextInput::make('kendaraan')
-                    ->required(),
-                Forms\Components\TextInput::make('jumlah')
-                    ->required(),
+                Forms\Components\TextInput::make('price')
+                    ->required()
+                    ->prefix('IDR')
+                    ->numeric(),
+                Forms\Components\TextInput::make('stocks')
+                    ->required()
+                    ->numeric(),
                 Forms\Components\TextInput::make('tujuan')
-                    ->nullable(),
+                    ->required(),
+                Forms\Components\FileUpload::make('image')
+                ->required(),
             ]);
     }
 
@@ -34,17 +42,18 @@ class TiketResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\ImageColumn::make('image'),
+                Tables\Columns\TextColumn::make('kendaraan.name'),
                 Tables\Columns\TextColumn::make('nama'),
-                Tables\Columns\TextColumn::make('kendaraan'),
-                Tables\Columns\TextColumn::make('jumlah'),
+                Tables\Columns\TextColumn::make('price'),
+                Tables\Columns\TextColumn::make('stocks'),
                 Tables\Columns\TextColumn::make('tujuan'),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime(),
             ])
             ->filters([
                 //
             ])
             ->actions([
+                Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
             ]);

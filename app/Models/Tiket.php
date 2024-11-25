@@ -10,9 +10,21 @@ class Tiket extends Model
     use HasFactory;
 
     protected $fillable = [
+        'kendaraan_id',
+        'price',
+        'stocks',
+        'image',
         'nama',
-        'kendaraan',
-        'jumlah',
         'tujuan',
     ];
+
+    public function kendaraan()
+    {
+        return $this->belongsTo(Kendaraan::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

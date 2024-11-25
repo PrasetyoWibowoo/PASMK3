@@ -9,16 +9,27 @@
 @vite('resources/css/app.css')
 </head>
 
+<body class="min-h-screen overflow-x-hidden">
+
+@if(session('success'))
+    <div class="fixed inset-0 flex items-center justify-center z-50">
+        <div class="bg-white bg-opacity-30 rounded-lg shadow-lg p-6">
+            <h2 class="text-xl font-bold text-black transition duration-300 delay-100 hover:text-white">{{ session('success') }}</h2>
+            <button id="close-popup" class="flex bg-opacity-70 mt-4 px-4 py-2 bg-green-500 text-white rounded transition duration-300 delay-100 hover:bg-black">Close</button>
+        </div>
+    </div>
+@endif
+
 <!-- Header -->
 <header id="navbar" class="bg-white/5 transition duration-300 ease-in-out absolute z-10 top-0 left-0 w-full p-4 shadow-lg sticky">
   <div class="container mx-auto flex items-center justify-between p-4">
     <a href="#" class="relative right-20 text-green-600 text-5xl font-lalezar text-shadow">TravelGo</a>
     <nav class="space-x-10 hidden md:flex left-40 top-3 relative">
-      <a href="#" class="text-white text-2xl font-lalezar hover:text-green-500 text-shadow">Home</a>
-      <a href="#" class="text-white text-2xl font-lalezar hover:text-green-500 text-shadow">About Us</a>
-      <a href="#" class="text-white text-2xl font-lalezar hover:text-green-500 text-shadow">Blog & News</a>
-      <a href="#" class="text-white text-2xl font-lalezar hover:text-green-500 text-shadow">Product</a>
-      <a href="#" class="px-5 py-2 bg-green-500 text-center text-white text-2xl font-lalezar relative bottom-3 rounded-3xl hover:text-black text-shadow">Join Us</a>
+      <a href="{{ route('home') }}" class="text-white text-2xl font-lalezar hover:text-green-500 text-shadow">Home</a>
+      <a href="{{ route('about') }}" class="text-white text-2xl font-lalezar hover:text-green-500 text-shadow">About Us</a>
+      <a href="{{ route('blognews') }}" class="text-white text-2xl font-lalezar hover:text-green-500 text-shadow">Blog & News</a>
+      <a href="{{ route('product') }}" class="text-white text-2xl font-lalezar hover:text-green-500 text-shadow">Product</a>
+      <a href="{{ route('register') }}" class="px-5 py-2 bg-green-500 text-center text-white text-2xl font-lalezar relative bottom-3 rounded-3xl hover:text-black text-shadow">Join Us</a>
     </nav>
   </div>
 </header>
@@ -35,6 +46,12 @@
       navbar.classList.add('bg-white/5');
     }
   });
+</script>
+
+<script>
+    document.getElementById('close-popup')?.addEventListener('click', function() {
+        this.closest('.fixed').style.display = 'none';
+    });
 </script>
 
 <!-- Hero Section -->
@@ -65,32 +82,52 @@
 </main>
 
 <footer class="bg-gray-800 text-white py-8">
-  <div class="container mx-auto grid md:grid-cols-3 gap-4">
-
+  <div class="container mx-auto grid md:grid-cols-3 top-16 relative">
     <div>
-      <h3 class="text-2xl font-bold text-green-600 mb-4">Travelgo</h3>
-      <ul class="space-y-2">
-        <li><a href="#" class="hover:text-green-500">Home</a></li>
-        <li><a href="#" class="hover:text-green-500">Blog & News</a></li>
-        <li><a href="#" class="hover:text-green-500">Join Us</a></li>
-        <li><a href="#" class="hover:text-green-500">Product</a></li>
-      </ul>
-    </div>
-
-    <div class="text-center">
-      <p class="mb-4">Send your email</p>
-      <input type="email" placeholder="Enter your email" class="p-2 w-full rounded-md text-gray-700">
-    </div>
-
-    <div class="flex justify-center space-x-4">
-      <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
-      <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
-      <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-youtube"></i></a>
-      <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook"></i></a>
-    </div>
+      <h1 class="text-4xl font-bold text-green-600 mb-4">Travelgo</h1>
+      <div class="flex space-x-20">
+    <a href="#" class="text-2xl hover:text-green-500 mr-3 relative">Home</a>
+    <a href="#" class="text-2xl hover:text-green-500">Blog & News</a>
   </div>
-  <div class="text-center mt-4">
+  <div class="flex space-x-20 text-left mb-4">
+    <a href="#" class="text-2xl hover:text-green-500">Join Us</a>
+    <a href="#" class="text-2xl hover:text-green-500">Cookie Settings</a>
+    </div>
+
+    <input type="email" placeholder="Send your email" class="left-64 p-2 w-80 rounded-xl text-gray-700 z-0"> 
+    <button class="mr-10 absolute hover: py-1 z-10">
+    <img src="{{ URL::asset('assets/img/Submit.png') }}" alt="Deskripsi Gambar" class="">
+    </button>
+  </div>
+    </div>
+      </div>
+      <!--Line tengah-->
+      <div class="h-52 w-px relative bottom-36 left-1/2 bg-gray-500"></div>
+
+      <div class="flex space-y-14 relative left-3/4 bottom-72">
+      <h1 class="text-2xl">Follow and keep updated!</h1>
+      <div class="flex relative right-64 space-x-8">
+      <a href="https://www.linkedin.com" target="_blank" class="hover:scale-110 transition-transform duration-300">
+    <img src="{{ URL::asset('assets/img/bxl-linkedin.png') }}" alt="Deskripsi Gambar" class="">
+    </a>
+      <a href="https://www.twitter.com" target="_blank" class="hover:scale-110 transition-transform duration-300">
+    <img src="{{ URL::asset('assets/img/bxl-twitter.png') }}" alt="Deskripsi Gambar" class="">
+    </a>
+      <a href="https://www.instagram.com" target="_blank" class="hover:scale-110 transition-transform duration-300">
+    <img src="{{ URL::asset('assets/img/bxl-instagram-alt.png') }}" alt="Deskripsi Gambar" class="">
+    </a>
+      <a href="https://www.youtube.com" target="_blank" class="hover:scale-110 transition-transform duration-300">
+    <img src="{{ URL::asset('assets/img/bxl-youtube.png') }}" alt="Deskripsi Gambar" class="">
+    </a>
+      <a href="https://www.github.com" target="_blank" class="hover:scale-110 transition-transform duration-300">
+    <img src="{{ URL::asset('assets/img/bxl-github.png') }}" alt="Deskripsi Gambar" class="">
+    </div>
+    </a>
+      </div>
+
+      <div class="text-center text-xl relative bottom-36">
     <p>TravelGo | 2024 All Rights Reserved</p>
+  </div>
   </div>
 </footer>
 

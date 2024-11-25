@@ -10,16 +10,22 @@ class CreateTiketsTable extends Migration
     {
         Schema::create('tikets', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('kendaraan_id');
             $table->string('nama');
-            $table->string('kendaraan');
-            $table->integer('jumlah');
-            $table->string('tujuan')->nullable();
+            $table->integer('price');
+            $table->integer('stocks');
+            $table->string('tujuan');
+            $table->string('image');
             $table->timestamps();
         });
     }
 
     public function down()
     {
+        Schema::table('tikets', function (Blueprint $table) {
+            $table->dropColumn('price');
+        });
+
         Schema::dropIfExists('tikets');
     }
 }

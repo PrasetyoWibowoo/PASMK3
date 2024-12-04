@@ -14,13 +14,13 @@ Route::get('/product', function () {return view('product');})->name('product');
 
 // Route::get('/blog', function () {return view('blognews');})->name('blognews');
 
-Route::get('/register', function () {return view('register');})->name('register');
-
     Route::get('/tickets/{tiket}', [TiketController::class, 'show'])->name('tickets.show');
     Route::post('/tickets/{tiket}/order', [TiketController::class, 'order'])->name('tickets.order');
 
-Route::get('register', [RegisterController::class, 'showRegistrationForm'])->name('register');
-Route::post('register', [RegisterController::class, 'register']);
-Route::resource('tikets', TiketController::class);
+
+Route::post('/register', [AuthController::class, 'register'])->name('register');
+Route::get('/registration-success', function () {
+    return view('tikets.index');
+})->name('registration.success');
 
 Route::get('/blog', [NewsController::class, 'index'])->name('blognews');

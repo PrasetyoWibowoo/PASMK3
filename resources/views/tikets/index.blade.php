@@ -9,6 +9,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body class="bg-gray-100">
+@if(session('success'))
+    <div class="fixed inset-0 flex items-center justify-center z-50">
+        <div class="bg-white bg-opacity-30 rounded-lg shadow-lg p-6">
+            <h2 class="text-xl font-bold text-black transition duration-300 delay-100 hover:text-white">{{ session('success') }}</h2>
+            <button id="close-popup" class="flex bg-opacity-70 mt-4 px-4 py-2 bg-green-500 text-white rounded transition duration-300 delay-100 hover:bg-black">Close</button>
+        </div>
+    </div>
+@endif
+
+<script>
+    document.getElementById('close-popup')?.addEventListener('click', function() {
+        this.closest('.fixed').style.display = 'none';
+    });
+</script>
+
     <div class="container mx-auto py-8">
         <h1 class="text-3xl font-bold mb-6 font-poppins">Daftar Tiket</h1>
         <h2 class="mb-5 font-bold font-poppins">Daftar Tiket Yang Tersedia:</h2>

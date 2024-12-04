@@ -23,7 +23,7 @@ class RegisterController extends Controller
         ]);
 
 
-        return redirect()->route('home')->with('success', 'Registration successful.');
+        return redirect()->route('tikets.index')->with('success', 'Registration successful.');
     }
 
     public function showRegistrationForm()

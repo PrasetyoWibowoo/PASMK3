@@ -11,14 +11,6 @@
 
 <body class="min-h-screen overflow-x-hidden">
 
-@if(session('success'))
-    <div class="fixed inset-0 flex items-center justify-center z-50">
-        <div class="bg-white bg-opacity-30 rounded-lg shadow-lg p-6">
-            <h2 class="text-xl font-bold text-black transition duration-300 delay-100 hover:text-white">{{ session('success') }}</h2>
-            <button id="close-popup" class="flex bg-opacity-70 mt-4 px-4 py-2 bg-green-500 text-white rounded transition duration-300 delay-100 hover:bg-black">Close</button>
-        </div>
-    </div>
-@endif
 
 <!-- Header -->
 <header id="navbar" class="bg-white/5 transition duration-300 ease-in-out absolute z-10 top-0 left-0 w-full p-4 shadow-lg sticky">
@@ -48,11 +40,7 @@
   });
 </script>
 
-<script>
-    document.getElementById('close-popup')?.addEventListener('click', function() {
-        this.closest('.fixed').style.display = 'none';
-    });
-</script>
+
 
 <!-- Hero Section -->
 <section class="relative">

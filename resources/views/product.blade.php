@@ -36,13 +36,13 @@
             <a href="#" class="text-2xl transition duration-300 delay-100 hover:text-white text-black font-bold">Motor</a>
         </div>
         <div class="bg-custom-text py-3 px-1 rounded-full text-center w-48 cursor-pointer hover:bg-gray-900">
-            <a href="#" class="text-2xl text-black font-bold">Mobil</a>
+            <a href="#" class="text-2xl transition duration-300 delay-100 text-black font-bold hover:text-white">Mobil</a>
         </div>
         <div class="bg-custom-text py-3 px-1 rounded-full text-center w-48 cursor-pointer hover:bg-gray-900">
-            <a href="#" class="text-2xl text-black font-bold">Kereta</a>
+            <a href="#" class="text-2xl transition duration-300 delay-100 text-black font-bold hover:text-white">Kereta</a>
         </div>
         <div class="bg-custom-text py-3 px-1 rounded-full text-center w-48 cursor-pointer hover:bg-gray-900">
-            <a href="#" class="text-2xl text-black font-bold">Pesawat</a>
+            <a href="#" class="text-2xl transition duration-300 delay-100 text-black font-bold hover:text-white">Pesawat</a>
         </div>
     </div>
 <main class="container bottom-28 relative mx-auto">

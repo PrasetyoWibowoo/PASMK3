@@ -20,6 +20,7 @@
   ::-webkit-scrollbar-thumb:hover {
     @apply bg-gray-500; /* Color of the scrollbar thumb on hover */
   }
+  
 }
 
     .text-shadow {

@@ -8,6 +8,5 @@
     <p>Jumlah: {{ $tiket->jumlah }}</p>
     <p>Tujuan: {{ $tiket->tujuan ?? 'Tidak ada tujuan' }}</p>
     <p>Status: Tiket telah dipesan</p>
-    <!-- Tidak ada tombol pemesanan di sini -->
 </div>
 @endsection

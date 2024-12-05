@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,14 +33,20 @@
     <!-- Hero Section -->
     <section class="py-24">
       <div class="mt-6 space-x-64 text-center">
-        <button class="font-poppins font-extrabold text-xl bg-green-500 text-black hover:text-white rounded-3xl rounded shadow-xl w-72 h-16 hover:bg-green-700">Culture</button>
-        <button class="font-poppins font-extrabold text-xl bg-green-500 text-black hover:text-white rounded-3xl rounded shadow-xl w-72 h-16 hover:bg-green-700">News</button>
-        <button class="font-poppins font-extrabold text-xl bg-green-500 text-black hover:text-white rounded-3xl rounded shadow-xl w-72 h-16 hover:bg-green-700">All</button>
+      <a href="#culture">
+        <button class="font-poppins font-extrabold text-xl bg-green-500 text-black hover:text-white rounded-3xl rounded shadow-xl w-72 h-16 hover:bg-green-600">Culture</button>
+        </a>
+        <a href="#news">
+        <button class="font-poppins font-extrabold text-xl bg-green-500 text-black hover:text-white rounded-3xl rounded shadow-xl w-72 h-16 hover:bg-green-600">News</button>
+        </a>
+        <a href="#all">
+        <button class="font-poppins font-extrabold text-xl bg-green-500 text-black hover:text-white rounded-3xl rounded shadow-xl w-72 h-16 hover:bg-green-600">All</button>
+        </a>
       </div>
     </section>
 
     <!-- Culture Section -->
-    <section class="py-10">
+    <section id="culture" class="py-10">
       <div class="container mx-auto px-4">
         <h3 class="text-8xl font-extrabold mb-6">Culture</h3>
         <hr class="mt-1 border-t-2 h-10 border-black w-full">
@@ -64,14 +70,14 @@
     </section>
 
     <!-- News Section -->
-    <section class="py-10">
+    <section id="news" class="py-10">
       <div class="container mx-auto px-4">
         <h3 class="text-6xl font-extrabold mb-6">News</h3>
         <hr class="mt-1 border-t-2 h-10 border-black w-full">
         <div class="space-y-6">
           @foreach ($news as $news)
           <div class="flex gap-4">
-            <img src="{{ asset('storage/' . $news->image)}}" alt="News 1" class="w-6/12 rounded">
+            <img src="{{ asset('storage/' . $news->image)}}" alt="News 1" class="hover:scale-105 transition-transform duration-300 rounded-md w-6/12 rounded h-96">
             <div>
               <p class="text-lg font-semibold">{{ $news->title }}</p>
               <p class="text-gray-600">{{ $news->description }}</p>
@@ -82,7 +88,7 @@
       </div>
     </section>
 
-    <section class="py-10">
+    <section id="all" class="py-10">
       <div class="container mx-auto px-4">
         <h3 class="text-8xl font-extrabold mb-6">All</h3>
         <hr class="mt-1 border-t-2 h-10 border-black w-full">
@@ -95,7 +101,7 @@
         <img src="{{URL::asset('/assets/img/news1.png')}}" alt="Culture 2" class ="hover:scale-105 transition-transform duration-300 mb-20 w-full rounded mb-2">
         </div>
           <div class="flex gap-4">
-            <img src="{{ asset('storage/' . $news->image)}}" alt="News 1" class="w-6/12 rounded">
+            <img src="{{ asset('storage/' . $news->image)}}" alt="News 1" class="hover:scale-105 transition-transform duration-300 w-full h-96 rounded">
             <div>
       </div>
     </section>
